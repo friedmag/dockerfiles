@@ -12,7 +12,8 @@ RUN sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
     sudo apt-get install g++-6 gcc-6 make gdb gdbserver automake libtool cmake -y && \
     sudo apt-get clean && \
     sudo apt-get -y autoremove && \
-    sudo rm -rf /var/lib/apt/lists/*
+    sudo rm -rf /var/lib/apt/lists/* && \
+    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 1 --slave /usr/bin/g++ g++ /usr/bin/g++-6
 
 WORKDIR /projects
 
