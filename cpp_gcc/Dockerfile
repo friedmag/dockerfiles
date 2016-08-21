@@ -13,7 +13,8 @@ RUN sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
     sudo apt-get clean && \
     sudo apt-get -y autoremove && \
     sudo rm -rf /var/lib/apt/lists/* && \
-    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 1 --slave /usr/bin/g++ g++ /usr/bin/g++-6
+    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 1 --slave /usr/bin/g++ g++ /usr/bin/g++-6 && \
+    echo '--log-file=valgrind.log --time-stamp=yes --leak-check=full --show-reachable=yes' >/home/user/.valgrindrc
 
 WORKDIR /projects
 
