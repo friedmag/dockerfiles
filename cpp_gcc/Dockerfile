@@ -16,6 +16,8 @@ RUN sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
     sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 1 --slave /usr/bin/g++ g++ /usr/bin/g++-6 && \
     echo '--log-file=valgrind.log --time-stamp=yes --leak-check=full --show-reachable=yes' >/home/user/.valgrindrc && \
     echo '[alias]' >>/home/user/.gitconfig && \
+    echo 'co = checkout' >>/home/user/.gitconfig && \
+    echo 'dc = diff --cached' >>/home/user/.gitconfig && \
     echo 'st = status' >>/home/user/.gitconfig && \
     echo 'br = branch' >>/home/user/.gitconfig
 
