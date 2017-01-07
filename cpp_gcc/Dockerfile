@@ -16,12 +16,9 @@ RUN sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
     sudo apt-get -y autoremove && \
     sudo rm -rf /var/lib/apt/lists/* && \
     sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 1 --slave /usr/bin/g++ g++ /usr/bin/g++-6 && \
-    echo '--log-file=valgrind.log --time-stamp=yes --leak-check=full --show-reachable=yes' >/home/user/.valgrindrc && \
-    echo '[alias]' >>/home/user/.gitconfig && \
-    echo 'co = checkout' >>/home/user/.gitconfig && \
-    echo 'dc = diff --cached' >>/home/user/.gitconfig && \
-    echo 'st = status' >>/home/user/.gitconfig && \
-    echo 'br = branch' >>/home/user/.gitconfig
+    curl https://raw.githubusercontent.com/friedmag/config/master/vimrc >/home/user/.vimrc && \
+    curl https://raw.githubusercontent.com/friedmag/config/master/valgrindrc >/home/user/.valgrindrc && \
+    curl https://raw.githubusercontent.com/friedmag/config/master/gitconfig >/home/user/.gitconfig
 
 WORKDIR /projects
 
