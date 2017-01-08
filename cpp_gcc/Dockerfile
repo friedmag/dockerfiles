@@ -16,9 +16,9 @@ RUN sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
     sudo apt-get -y autoremove && \
     sudo rm -rf /var/lib/apt/lists/* && \
     sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 1 --slave /usr/bin/g++ g++ /usr/bin/g++-6 && \
-    curl https://raw.githubusercontent.com/friedmag/config/master/vimrc >/home/user/.vimrc && \
-    curl https://raw.githubusercontent.com/friedmag/config/master/valgrindrc >/home/user/.valgrindrc && \
-    curl https://raw.githubusercontent.com/friedmag/config/master/gitconfig >/home/user/.gitconfig
+    for i in bashrc tmux.conf vimrc gitconfig valgrindrc; do \
+        curl https://raw.githubusercontent.com/friedmag/config/master/$i >/home/user/.$i; \
+    done
 
 WORKDIR /projects
 
